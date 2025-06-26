@@ -31,10 +31,10 @@ def html_table_to_dict(html_table):
             rows.append(row_dict)
     return rows
 
-def main():
+def decode(url):
 
     # request the content of the doc and decode as an html string
-    req = requests.get(DOC_URL)
+    req = requests.get(url)
     content = req.content.decode('utf-8')
 
     # extract the table portion of the string and store as a dictionary
@@ -72,6 +72,10 @@ def main():
         for char in char_list:
             row += char
         print(row)
+
+def main():
+
+    decode(DOC_URL)
     
 if __name__ == "__main__":
     main()
